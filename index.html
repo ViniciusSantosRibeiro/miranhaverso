@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joguinho pra Gi</title>
+</head>
+<style>
+    body{
+        background-color: red;
+        color: white;
+    }
+
+    img{
+        height: 100%;
+        width: 100%;
+    }
+
+    .painel{
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    #miranha{
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        border: none;
+        border-radius: 100px;  
+        background-color: transparent;
+    }
+
+    #miranha:hover{
+        transition: all 0.4s ease;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+</style>
+<body>
+    <div class="painel">
+        <h1><span id="counter"></span></h1>
+        <button id="miranha" onclick="fuja()"><img src="https://gifs.eco.br/wp-content/uploads/2023/02/imagens-do-rosto-homem-aranha-png-0.png" alt="miranha"></button>
+    </div>
+
+
+    <script>
+        var point = 0;
+        function fuja(){
+            var botao = document.getElementById("miranha");
+
+            var Wwindow =  window.innerWidth;
+            var Hwindow = window.innerHeight;
+
+
+            var maxX = Wwindow - botao.offsetWidth;
+            var maxY = Hwindow - botao.offsetHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            botao.style.left = randomX + "px";
+            botao.style.top = randomY + "px";
+
+            point += 1;
+
+            document.getElementById("counter").innerHTML = point;
+        }
+    </script>
+</body>
+</html>
